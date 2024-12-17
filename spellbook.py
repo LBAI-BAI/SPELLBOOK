@@ -2,6 +2,7 @@ import sys
 import os
 from lda import lda
 from app import app
+from hmp import hmp
 
 def check_incantation(arg_list:list)->bool:
     """Check provided arguments, return False if spell is not known, inpurt file does not exist or number
@@ -17,7 +18,7 @@ def check_incantation(arg_list:list)->bool:
 
     # parameters
     check = True
-    known_spell = ['lda', 'app']
+    known_spell = ['lda', 'hmp']
     
     if len(arg_list) == 4:
 
@@ -52,6 +53,10 @@ def run(spell:str, input_file:str, output_folder:str):
     # deal with appariement
     if spell == 'app':
         app.run(input_file, output_folder)
+        
+    # deal with heatmap
+    if spell == 'hmp':
+        hmp.run(input_file, output_folder)
 
 if __name__ == "__main__":
 
