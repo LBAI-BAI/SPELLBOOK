@@ -22,6 +22,7 @@ def check_incantation(arg_list:list)->bool:
     
     if len(arg_list) == 4:
 
+
         # check that spell is in spellbook
         if arg_list[1] not in known_spell:
             check = False
