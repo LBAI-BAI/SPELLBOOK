@@ -1,7 +1,7 @@
 import os
 import argparse
 import pandas as pd
-import PhenoGraph
+import phenograph
 
 def check_config(arguments):
     """Check that provided arguments are legit
@@ -20,13 +20,19 @@ def check_config(arguments):
     check = True
 
     # add output folder
-    config["output"] = arguments.output
-    if not os.path.isdir(config['output']):
-        os.mkdir(config['output'])
+    if arguments.output:
+        config["output"] = arguments.output
+        if not os.path.isdir(config['output']):
+            os.mkdir(config['output'])
+    else:
+        check = False
         
     # add input file
-    config["input"] = arguments.input
-    if not os.path.isfile(config['input']):
+    if arguments.input:
+        config["input"] = arguments.input
+        if not os.path.isfile(config['input']):
+            check = False
+    else:
         check = False
 
     # return config
