@@ -132,8 +132,9 @@ def run(input_file, output_folder):
     for col in col_list:
         df_tmp = df_feature[['VARIABLE', col]]
         df_tmp[col] = abs(df_tmp[col])
-        df_tmp = df_tmp.sort_values(by=col, ascending=True)
+        df_tmp = df_tmp.sort_values(by=col, ascending=False)
         df_tmp = df_tmp.head(max_feature_to_display)
+        df_tmp = df_tmp.iloc[::-1].reset_index(drop=True)
 
         # Plot the barplot
         plt.figure(figsize=(8, 5))
