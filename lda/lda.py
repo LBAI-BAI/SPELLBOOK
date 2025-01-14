@@ -84,7 +84,7 @@ def run(input_file, output_folder):
     X_r = lda.fit(X, y).transform(X)
 
     # save model
-    joblib.dump(lda, f"{output_folder}/model.pkl")
+    joblib.dump(lda, f"{output_folder}/model.joblib")
 
     # save data embedding
     vector_list = []
